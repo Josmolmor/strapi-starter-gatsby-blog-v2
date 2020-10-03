@@ -1,15 +1,15 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-import Moment from 'react-moment'
+import Moment from 'react-moment';
 
-import Layout from '../components/layout'
-import Seo from '../components/seo'
+import Layout from '../components/layout';
+import Seo from '../components/seo';
 
-import { MDXProvider } from '@mdx-js/react'
+import { MDXProvider } from '@mdx-js/react';
 
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer'
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 
 export const query = graphql`
     query ArticleQuery($slug: String!) {
@@ -52,10 +52,10 @@ export const query = graphql`
             }
         }
     }
-`
+`;
 
 const Article = ({ data }) => {
-    const article = data.strapiArticle
+    const article = data.strapiArticle;
     return (
         <Layout>
             <Seo
@@ -77,24 +77,42 @@ const Article = ({ data }) => {
                 <div className="uk-section">
                     <div className="uk-container uk-container-small">
                         <MDXProvider>
-                            <MDXRenderer>{article.childStrapiArticleContent.childMdx.body}</MDXRenderer>
+                            <MDXRenderer>
+                                {
+                                    article.childStrapiArticleContent.childMdx
+                                        .body
+                                }
+                            </MDXRenderer>
                         </MDXProvider>
 
                         <hr className="uk-divider-small" />
 
-                        <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+                        <div
+                            className="uk-grid-small uk-flex-left"
+                            data-uk-grid="true"
+                        >
                             <div>
                                 {article.user.image && (
                                     <Img
-                                        fixed={article.user.image.childImageSharp.fixed}
-                                        imgStyle={{ position: 'static', borderRadius: '50%' }}
+                                        fixed={
+                                            article.user.image.childImageSharp
+                                                .fixed
+                                        }
+                                        imgStyle={{
+                                            position: 'static',
+                                            borderRadius: '50%',
+                                        }}
                                     />
                                 )}
                             </div>
                             <div className="uk-width-expand">
-                                <p className="uk-margin-remove-bottom">By {article.user.username}</p>
+                                <p className="uk-margin-remove-bottom">
+                                    By {article.user.username}
+                                </p>
                                 <p className="uk-text-meta uk-margin-remove-top">
-                                    <Moment format="MMM Do YYYY">{article.published_at}</Moment>
+                                    <Moment format="MMM Do YYYY">
+                                        {article.published_at}
+                                    </Moment>
                                 </p>
                             </div>
                         </div>
@@ -102,7 +120,7 @@ const Article = ({ data }) => {
                 </div>
             </div>
         </Layout>
-    )
-}
+    );
+};
 
-export default Article
+export default Article;

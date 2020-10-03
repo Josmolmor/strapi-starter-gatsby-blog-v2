@@ -1,10 +1,10 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Layout from '../components/layout'
-import ArticlesComponent from '../components/articles'
+import Layout from '../components/layout';
+import ArticlesComponent from '../components/articles';
 
-import '../assets/css/main.css'
+import '../assets/css/main.css';
 
 const IndexPage = () => (
     <Layout>
@@ -47,16 +47,18 @@ const IndexPage = () => (
                     }
                 }
             `}
-            render={data => (
+            render={(data) => (
                 <div className="uk-section">
                     <div className="uk-container uk-container-large">
                         <h1>{data.strapiHomepage.Hero.HeroText}</h1>
-                        <ArticlesComponent articles={data.allStrapiArticle.edges} />
+                        <ArticlesComponent
+                            articles={data.allStrapiArticle.edges}
+                        />
                     </div>
                 </div>
             )}
         />
     </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
