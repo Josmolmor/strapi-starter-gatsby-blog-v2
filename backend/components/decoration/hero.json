@@ -9,6 +9,9 @@
     "HeroText": {
       "type": "string",
       "required": true
+    },
+    "SubHeroText": {
+      "type": "string"
     }
   }
 }
