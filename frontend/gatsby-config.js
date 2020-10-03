@@ -2,6 +2,8 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 
+const importPath = require('path')
+
 module.exports = {
     siteMetadata: {
         title: 'Virginia Otero Perez',
@@ -47,5 +49,27 @@ module.exports = {
         'gatsby-plugin-offline',
         'gatsby-plugin-typescript',
         'gatsby-plugin-styled-components',
+        {
+            resolve: 'gatsby-plugin-root-import',
+            options: {
+                src: importPath.join(__dirname, 'src'),
+                assets: importPath.join(__dirname, 'src/assets'),
+                pages: importPath.join(__dirname, 'src/pages'),
+                templates: importPath.join(__dirname, 'src/templates'),
+                components: importPath.join(__dirname, 'src/components'),
+                utils: importPath.join(__dirname, 'src/utils'),
+                styles: importPath.join(__dirname, 'src/styles'),
+            },
+        },
+        {
+            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            options: {
+                fonts: [
+                    {
+                        family: `Yantramanav`,
+                    },
+                ],
+            },
+        },
     ],
 }
