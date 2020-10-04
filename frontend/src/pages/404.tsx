@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Layout, Seo } from 'components';
-import { Container, GifImage } from './styles/404';
+import { Container, GifImage } from 'styles/pages/404';
 
 const NotFoundPage: FC = () => (
     <Layout>

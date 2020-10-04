@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { Layout, ArticleList, Banner } from 'components';
 import 'assets/css/main.css';
-import { Container } from './styles/Base';
+import { Container } from 'styles/pages/Base';
 
 const IndexPage: FC = () => {
     return (

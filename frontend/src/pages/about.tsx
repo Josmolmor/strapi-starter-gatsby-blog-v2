@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Seo, Layout } from 'components';
-import { Container, ProfileImg } from './styles/About';
+import { Container, ProfileImg } from 'styles/pages/About';
 
 const About: FC = () => (
     <Layout>
