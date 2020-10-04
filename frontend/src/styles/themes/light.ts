@@ -7,10 +7,7 @@ export default {
         extraBold: 800,
     },
     colors: {
-        primary: '#4A61F2',
-        primaryAlt: '#2642EF',
-        secondary: '#B067AB',
-        secondaryAlt: '#964E91',
+        primary: '#BF2D52',
         alert: '#D73D09',
         warning: '#FAB72D',
         success: '#69CC8B',
@@ -31,9 +28,6 @@ export default {
         gray600: '#62707B',
         gray700: '#445461',
         gray800: '#263947',
-        inputBorder: '#BCC2C9',
-        inputFocusBg: '#F3F4FE',
-        inputErrorBg: '#FCF0ED',
     },
     ZIndex: {
         main: 0,

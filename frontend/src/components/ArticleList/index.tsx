@@ -10,13 +10,13 @@ const Articles: FC<Props> = ({ articles }) => {
     return (
         <div className="uk-child-width-1-2@s" data-uk-grid="true">
             <div>
-                {leftArticles.map((article: { node: { slug: any } }, _i: any) => {
+                {leftArticles.map((article: { node: { slug: any } }) => {
                     return <Card article={article} key={`article__left__${article.node.slug}`} />;
                 })}
             </div>
             <div>
                 <div className="uk-child-width-1-2@m uk-grid-match" data-uk-grid>
-                    {rightArticles.map((article: { node: { slug: any } }, _i: any) => {
+                    {rightArticles.map((article: { node: { slug: any } }) => {
                         return <Card article={article} key={`article__right__${article.node.slug}`} />;
                     })}
                 </div>

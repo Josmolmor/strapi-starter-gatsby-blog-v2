@@ -1,18 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import ArticlesComponent from '../components/articles';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
+import ArticlesComponent from '../components/ArticleList';
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
 
 export const query = graphql`
     query Category($slug: String!) {
-        articles: allStrapiArticle(
-            filter: {
-                status: { eq: "published" }
-                category: { slug: { eq: $slug } }
-            }
-        ) {
+        articles: allStrapiArticle(filter: { status: { eq: "published" }, category: { slug: { eq: $slug } } }) {
             edges {
                 node {
                     slug
@@ -52,10 +47,7 @@ const Category = ({ data }) => {
 
     return (
         <Layout>
-            <Seo
-                title={category + ' - Strapi Gatsby Blog Starter'}
-                description={category + ' on my blog'}
-            />
+            <Seo title={category + ' - Strapi Gatsby Blog Starter'} description={category + ' on my blog'} />
             <div className="uk-section">
                 <div className="uk-container uk-container-large">
                     <h1>{category}</h1>

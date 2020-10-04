@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import ArticlesComponent from '../components/articles';
+import Layout from 'components/Layout';
+import ArticlesComponent from 'components/ArticleList';
 
-import '../assets/css/main.css';
+import 'assets/css/main.css';
+import { Container, HeroHeader, HeroText, SubHeroText, TitleContent, ButtonContainer } from './styles/Base';
+import Button from 'components/Button';
 
-const IndexPage = () => (
+const IndexPage: FC = () => (
     <Layout>
         <StaticQuery
             query={graphql`
@@ -14,6 +16,7 @@ const IndexPage = () => (
                     strapiHomepage {
                         Hero {
                             HeroText
+                            SubHeroText
                         }
                     }
                     allStrapiArticle(filter: { status: { eq: "published" } }) {
@@ -48,14 +51,18 @@ const IndexPage = () => (
                 }
             `}
             render={(data) => (
-                <div className="uk-section">
-                    <div className="uk-container uk-container-large">
-                        <h1>{data.strapiHomepage.Hero.HeroText}</h1>
-                        <ArticlesComponent
-                            articles={data.allStrapiArticle.edges}
-                        />
-                    </div>
-                </div>
+                <Container>
+                    <HeroHeader>
+                        <TitleContent>
+                            <HeroText>{data.strapiHomepage.Hero.HeroText}</HeroText>
+                            <SubHeroText>{data.strapiHomepage.Hero.SubHeroText}</SubHeroText>
+                        </TitleContent>
+                        <ButtonContainer>
+                            <Button to="/contact">¡Hablemos!</Button>
+                        </ButtonContainer>
+                    </HeroHeader>
+                    <ArticlesComponent articles={data.allStrapiArticle.edges} />
+                </Container>
             )}
         />
     </Layout>
