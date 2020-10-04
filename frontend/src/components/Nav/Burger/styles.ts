@@ -1,5 +1,12 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Moon, Sun } from 'react-feather';
+import { rotateIn } from 'react-animations';
+
+const rotateAnimation = keyframes`${rotateIn}`;
+
+export const RotateDiv = styled.div`
+    animation: 1s ${rotateAnimation};
+`;
 
 export const StyledBurger = styled.div<{ open: boolean }>`
     cursor: pointer;

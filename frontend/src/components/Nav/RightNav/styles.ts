@@ -5,6 +5,7 @@ export const NavbarRightSide = styled.ul<{ open: boolean }>`
     display: flex;
     flex-flow: row nowrap;
     list-style: none;
+    position: relative;
     ${({ open }) =>
         open
             ? css`
@@ -25,7 +26,7 @@ export const NavbarRightSide = styled.ul<{ open: boolean }>`
               `};
     @media (max-width: 768px) {
         flex-flow: column nowrap;
-        background-color: white;
+        background-color: ${({ theme }) => theme.colors.background};
         position: fixed;
         transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
         top: 0;
@@ -39,5 +40,53 @@ export const NavbarRightSide = styled.ul<{ open: boolean }>`
         li {
             color: #fff;
         }
+    }
+`;
+
+export const CategoriesListBackdrop = styled.div<{ categoriesOpen: boolean }>`
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    z-index: 996;
+    ${({ categoriesOpen }) =>
+        categoriesOpen &&
+        css`
+            position: initial;
+        `}
+`;
+
+export const CategoriesList = styled.ul<{ categoriesOpen: boolean }>`
+    background-color: ${({ theme }) => theme.colors.background};
+    border-radius: 0.25rem;
+    -webkit-box-shadow: 0 1px 3px 0 rgba(33, 6, 6, 0.5);
+    -moz-box-shadow: 0 1px 3px 0 rgba(33, 6, 6, 0.5);
+    box-shadow: 0 1px 3px 0 rgba(33, 6, 6, 0.5);
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    position: absolute;
+    right: 2.5rem;
+    top: 2.5rem;
+    z-index: 997;
+
+    ${({ categoriesOpen }) =>
+        categoriesOpen &&
+        css`
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            position: initial;
+        `};
+`;
+
+export const Category = styled.li`
+    font-size: 1rem;
+    list-style: none;
+    a {
+        display: flex;
     }
 `;

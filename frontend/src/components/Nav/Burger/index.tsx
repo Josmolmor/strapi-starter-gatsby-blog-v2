@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import RightNav from '../RightNav';
-import { StyledBurger, MoonButton, SunButton } from './styles';
+import { StyledBurger, MoonButton, SunButton, RotateDiv } from './styles';
 import BurgerType from './types';
 import { myContext } from 'context';
 
@@ -16,9 +16,13 @@ const Burger: FC<BurgerType> = ({ open, data, onClick }) => {
                     </StyledBurger>
                     <RightNav open={open} data={data}>
                         {context?.isDark ? (
-                            <SunButton onClick={() => context.changeTheme()} />
+                            <RotateDiv>
+                                <SunButton onClick={() => context.changeTheme()} />
+                            </RotateDiv>
                         ) : (
-                            <MoonButton onClick={() => context.changeTheme()} />
+                            <RotateDiv>
+                                <MoonButton onClick={() => context.changeTheme()} />
+                            </RotateDiv>
                         )}
                     </RightNav>
                 </>
