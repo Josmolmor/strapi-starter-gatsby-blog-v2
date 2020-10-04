@@ -4,6 +4,7 @@ import { Container, CardImg, CardBody, CategoryTag, UserName } from './styles';
 import { Props } from './types';
 
 const Card: FC<Props> = ({ article, ...rest }) => {
+    console.log(article.node.image.childImageSharp.fixed);
     return (
         <Link {...rest} to={`/article/${article.node.slug}`} className="uk-link-reset">
             <Container className="uk-card uk-card-muted">

@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 import { Logo } from 'components/Vectors';
 
+export const Backdrop = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 997;
+`;
+
 export const Container = styled.nav`
+    display: flex;
     margin: auto;
     max-width: 1600px;
+    justify-content: space-between;
     padding: 1rem;
     width: 95%;
-    @media (min-width: 640px) {
-        padding: 1rem 2.5rem;
-    }
 `;
 
 export const NavbarLogo = styled(Logo)`

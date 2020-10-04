@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import Seo from 'components/Seo';
-import Layout from 'components/Layout';
+import { Seo, Layout } from 'components';
 
 const Contact: FC = () => (
     <Layout>

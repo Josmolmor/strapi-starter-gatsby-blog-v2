@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import Seo from 'components/Seo';
-import Layout from 'components/Layout';
+import { Seo, Layout } from 'components';
 import { Container, ProfileImg } from './styles/About';
 
 const About: FC = () => (

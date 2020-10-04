@@ -2,11 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     box-sizing: border-box;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 4rem;
     @media (min-width: 960px) {
-        padding-top: 1.75rem;
-        padding-bottom: 2rem;
     }
 `;
 

@@ -28,6 +28,7 @@ export default {
         gray600: '#62707B',
         gray700: '#445461',
         gray800: '#263947',
+        cardBackground: '#fff',
     },
     ZIndex: {
         main: 0,

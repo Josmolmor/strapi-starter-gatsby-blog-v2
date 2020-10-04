@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Card from 'components/Card';
+import { Card } from 'components';
 import { Props } from './types';
 
 const Articles: FC<Props> = ({ articles }) => {

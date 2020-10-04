@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-
-import Layout from 'components/Layout';
-import ArticlesComponent from 'components/ArticleList';
-
+import { Button, Layout, ArticleList } from 'components';
 import 'assets/css/main.css';
 import { Container, HeroHeader, HeroText, SubHeroText, TitleContent, ButtonContainer } from './styles/Base';
-import Button from 'components/Button';
 
 const IndexPage: FC = () => (
     <Layout>
@@ -61,7 +57,7 @@ const IndexPage: FC = () => (
                             <Button to="/contact">¡Hablemos!</Button>
                         </ButtonContainer>
                     </HeroHeader>
-                    <ArticlesComponent articles={data.allStrapiArticle.edges} />
+                    <ArticleList articles={data.allStrapiArticle.edges} />
                 </Container>
             )}
         />

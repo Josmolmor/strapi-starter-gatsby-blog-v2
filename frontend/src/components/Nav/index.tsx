@@ -1,58 +1,57 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Container, NavbarLogo, NavbarRightSide } from './styles';
-import Link from 'components/Link';
-import Button from 'components/Button';
+import { Backdrop, Container, NavbarLogo } from './styles';
+import { Link } from 'components';
+import Burger from './Burger';
+import { useWindowSize } from 'hooks';
 
-const Nav: FC = () => (
-    <StaticQuery
-        query={graphql`
-            query {
-                strapiHomepage {
-                    Nav {
-                        navText
+const Nav: FC = () => {
+    const windowSize = useWindowSize();
+    useEffect(() => {
+        if (!windowSize?.width) {
+            return;
+        }
+        windowSize?.width > 768 && setOpen(false);
+    }, [windowSize]);
+    const [open, setOpen] = useState(false);
+
+    const handleMenuOpening = (status: boolean) => {
+        setOpen(!open);
+        document.body.style.overflow = status ? 'hidden' : 'unset';
+    };
+
+    return (
+        <StaticQuery
+            query={graphql`
+                query {
+                    strapiHomepage {
+                        Nav {
+                            navText
+                        }
                     }
-                }
-                allStrapiCategory {
-                    edges {
-                        node {
-                            slug
-                            name
+                    allStrapiCategory {
+                        edges {
+                            node {
+                                slug
+                                name
+                            }
                         }
                     }
                 }
-            }
-        `}
-        render={(data) => (
-            <Container data-uk-navbar>
-                <div className="uk-navbar-left">
-                    <Link to="/">
-                        <NavbarLogo />
-                    </Link>
-                </div>
-
-                <NavbarRightSide>
-                    <Link to="/">Blog</Link>
-                    <Link to="/about">Sobre mi</Link>
-                    <Link to="/contact">Contacto</Link>
-                    <Button variant="ghost" type="button">
-                        Categorías
-                    </Button>
-                    <div uk-dropdown="animation: uk-animation-slide-top-small; duration: 750">
-                        <ul className="uk-nav uk-dropdown-nav">
-                            {data.allStrapiCategory.edges.map((category: any, _i: any) => {
-                                return (
-                                    <li key={`category__${category.node.slug}`}>
-                                        <Link to={`/category/${category.node.slug}`}>{category.node.name}</Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+            `}
+            render={(data) => (
+                <Container data-uk-navbar>
+                    {open && <Backdrop onClick={() => handleMenuOpening(false)} />}
+                    <div className="uk-navbar-left">
+                        <Link to="/">
+                            <NavbarLogo />
+                        </Link>
                     </div>
-                </NavbarRightSide>
-            </Container>
-        )}
-    />
-);
+                    <Burger open={open} data={data} onClick={() => handleMenuOpening(!open)} />
+                </Container>
+            )}
+        />
+    );
+};
 
 export default Nav;

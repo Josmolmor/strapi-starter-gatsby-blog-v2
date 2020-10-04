@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-
-import Nav from 'components/Nav';
-import Seo from 'components/Seo';
+import { Nav, Seo } from 'components';
 import Container from './styles';
 
 const Layout: FC = ({ children }) => (
