@@ -8,7 +8,9 @@ const Banner: FC<BannerTypes> = ({ data, ctaButtonText, ...rest }) => {
         <HeroHeader {...rest}>
             <TitleContent>
                 <HeroText>{data.strapiHomepage.Hero.HeroText}</HeroText>
-                <SubHeroText>{data.strapiHomepage.Hero.SubHeroText}</SubHeroText>
+                {data.strapiHomepage.Hero?.SubHeroText && (
+                    <SubHeroText>{data.strapiHomepage.Hero.SubHeroText}</SubHeroText>
+                )}
                 {ctaButtonText && <Button to="/contact">{ctaButtonText}</Button>}
             </TitleContent>
             <LetsTalkIllustration />
