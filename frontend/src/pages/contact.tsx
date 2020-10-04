@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { Seo, Layout } from 'components';
+import { Seo, Layout, MyForm } from 'components';
 
 const Contact: FC = () => (
     <Layout>
         <Seo title="Contacto" />
-        <h1>Contacto</h1>
+        <MyForm />
     </Layout>
 );
 
