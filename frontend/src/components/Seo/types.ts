@@ -1,5 +1,5 @@
 export type Props = {
-    title: string;
+    title?: string;
     description?: string;
     image?: string;
     article?: boolean;

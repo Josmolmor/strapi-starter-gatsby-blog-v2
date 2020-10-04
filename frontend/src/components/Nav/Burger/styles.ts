@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Moon, Sun } from 'react-feather';
 
 export const StyledBurger = styled.div<{ open: boolean }>`
     cursor: pointer;
@@ -32,4 +33,17 @@ export const StyledBurger = styled.div<{ open: boolean }>`
             transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
         }
     }
+`;
+
+const commonToggleCss = css`
+    color: ${({ theme }) => theme.colors.navLinks};
+    cursor: pointer;
+`;
+
+export const MoonButton = styled(Moon)`
+    ${commonToggleCss};
+`;
+
+export const SunButton = styled(Sun)`
+    ${commonToggleCss};
 `;

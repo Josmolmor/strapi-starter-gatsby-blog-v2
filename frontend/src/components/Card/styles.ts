@@ -24,6 +24,10 @@ export const CardImg = styled(Img)`
 
 export const CardBody = styled.div`
     padding: 1.25rem 1.5rem;
+    p {
+        color: ${({ theme }) => theme.colors.typography};
+        margin: 1.25rem 0 0.5rem;
+    }
 `;
 
 export const CategoryTag = styled.span`

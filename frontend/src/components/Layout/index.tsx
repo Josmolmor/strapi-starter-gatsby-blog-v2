@@ -1,42 +1,44 @@
 import React, { FC } from 'react';
-import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { Nav, Seo } from 'components';
 import Container from './styles';
+import { myContext } from 'context';
 
-const Layout: FC = ({ children }) => (
-    <StaticQuery
-        query={graphql`
-            query {
-                strapiHomepage {
-                    Seo {
-                        metaTitle
-                        metaDescription
-                        shareImage {
-                            image {
-                                publicURL
+const Layout: FC = ({ children }) => {
+    return (
+        <StaticQuery
+            query={graphql`
+                query {
+                    strapiHomepage {
+                        Seo {
+                            metaTitle
+                            metaDescription
+                            shareImage {
+                                image {
+                                    publicURL
+                                }
                             }
                         }
                     }
                 }
-            }
-        `}
-        render={(data) => (
-            <>
-                <Seo
-                    title={data.strapiHomepage.Seo.metaTitle}
-                    description={data.strapiHomepage.Seo.metaDescription}
-                    image={data.strapiHomepage.Seo.shareImage.image.url}
-                />
-                <Nav />
-                <Container>{children}</Container>
-            </>
-        )}
-    />
-);
-
-Layout.propTypes = {
-    children: PropTypes.node.isRequired,
+            `}
+            render={(data) => (
+                <myContext.Consumer>
+                    {() => (
+                        <>
+                            <Seo
+                                title={data.strapiHomepage.Seo.metaTitle}
+                                description={data.strapiHomepage.Seo.metaDescription}
+                                image={data.strapiHomepage.Seo.shareImage.image.url}
+                            />
+                            <Nav />
+                            <Container>{children}</Container>
+                        </>
+                    )}
+                </myContext.Consumer>
+            )}
+        />
+    );
 };
 
 export default Layout;

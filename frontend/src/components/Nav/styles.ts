@@ -11,12 +11,11 @@ export const Backdrop = styled.div`
 `;
 
 export const Container = styled.nav`
+    background: ${({ theme }) => theme.colors.background};
     display: flex;
     margin: auto;
-    max-width: 1600px;
     justify-content: space-between;
-    padding: 1rem;
-    width: 95%;
+    padding: 1rem 2rem;
 `;
 
 export const NavbarLogo = styled(Logo)`

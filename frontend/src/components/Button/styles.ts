@@ -27,19 +27,20 @@ const buttonVariants = css<{ variant?: 'ghost'; to?: string }>`
         outline: none;
     }
     &:hover {
-        filter: brightness(0.75);
+        filter: brightness(0.9);
     }
     ${({ variant, to }) =>
         (variant &&
             variant === 'ghost' &&
             css`
                 background: transparent;
-                border: 1px solid ${({ theme }) => theme.colors.primary};
-                color: ${({ theme }) => theme.colors.primary};
+                border: 1px solid ${({ theme }) => theme.colors.navLinks};
+                color: ${({ theme }) => theme.colors.navLinks};
                 font-weight: normal;
                 padding: 0.5rem 0.75rem;
                 &:hover {
                     background: ${({ theme }) => theme.colors.primary};
+                    border: 1px solid ${({ theme }) => theme.colors.primary};
                     color: ${({ theme }) => theme.colors.white};
                     filter: brightness(100%);
                 }
@@ -58,4 +59,7 @@ export const ButtonDefault = styled.button`
 
 export const LinkAsButton = styled(Link)`
     ${buttonVariants};
+    &:hover {
+        text-decoration: none;
+    }
 `;

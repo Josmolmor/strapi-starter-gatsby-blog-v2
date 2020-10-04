@@ -1,3 +1,5 @@
+const primary = '#BF2D52';
+
 export default {
     weights: {
         normal: 400,
@@ -7,7 +9,7 @@ export default {
         extraBold: 800,
     },
     colors: {
-        primary: '#BF2D52',
+        primary,
         alert: '#D73D09',
         warning: '#FAB72D',
         success: '#69CC8B',
@@ -18,7 +20,7 @@ export default {
         shadow: '#3F535C',
         dark: '#081D2D',
         overlay: '#141C26',
-        permissionsBg: '#04101A',
+        background: '#ffffff',
         black: '#000000',
         gray100: '#F8F9FD',
         gray200: '#DADEE3',
@@ -29,6 +31,9 @@ export default {
         gray700: '#445461',
         gray800: '#263947',
         cardBackground: '#fff',
+        typography: '#515151',
+        navLinks: primary,
+        navLinksHover: '#fff',
     },
     ZIndex: {
         main: 0,

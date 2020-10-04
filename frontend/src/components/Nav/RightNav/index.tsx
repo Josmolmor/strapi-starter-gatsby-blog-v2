@@ -3,7 +3,7 @@ import { Link, Button } from 'components';
 import { NavbarRightSide } from './styles';
 import RightNavTypes from './types';
 
-const RightNav: FC<RightNavTypes> = ({ open, data }) => {
+const RightNav: FC<RightNavTypes> = ({ open, data, children }) => {
     return (
         <NavbarRightSide open={open}>
             <Link to="/">Blog</Link>
@@ -23,6 +23,7 @@ const RightNav: FC<RightNavTypes> = ({ open, data }) => {
                     })}
                 </ul>
             </div>
+            {children}
         </NavbarRightSide>
     );
 };

@@ -4,7 +4,6 @@ import { Container, CardImg, CardBody, CategoryTag, UserName } from './styles';
 import { Props } from './types';
 
 const Card: FC<Props> = ({ article, ...rest }) => {
-    console.log(article.node.image.childImageSharp.fixed);
     return (
         <Link {...rest} to={`/article/${article.node.slug}`} className="uk-link-reset">
             <Container className="uk-card uk-card-muted">
@@ -16,24 +15,27 @@ const Card: FC<Props> = ({ article, ...rest }) => {
                     <p id="title" className="uk-text-large">
                         {article.node.title}
                     </p>
-                    <div>
-                        <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-                            <div>
-                                {article.node.user.image && (
-                                    <CardImg
-                                        fixed={article.node.user.image.childImageSharp.fixed}
-                                        imgStyle={{
-                                            position: 'static',
-                                            borderRadius: '25%',
-                                        }}
-                                    />
-                                )}
-                            </div>
-                            <div className="uk-width-expand">
-                                <UserName>{article.node.user.username}</UserName>
+                    {false && (
+                        <div>
+                            <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
+                                <div>
+                                    {article.node.user.image && (
+                                        <CardImg
+                                            fixed={article.node.user.image.childImageSharp.fixed}
+                                            imgStyle={{
+                                                position: 'static',
+                                                borderRadius: '25%',
+                                            }}
+                                        />
+                                    )}
+                                </div>
+
+                                <div className="uk-width-expand">
+                                    <UserName>{article.node.user.username}</UserName>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    )}
                 </CardBody>
             </Container>
         </Link>

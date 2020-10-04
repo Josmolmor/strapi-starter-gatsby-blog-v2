@@ -61,6 +61,7 @@ module.exports = {
                 utils: importPath.join(__dirname, 'src/utils'),
                 styles: importPath.join(__dirname, 'src/styles'),
                 hooks: importPath.join(__dirname, 'src/hooks'),
+                context: importPath.join(__dirname, 'src/context'),
             },
         },
         {
