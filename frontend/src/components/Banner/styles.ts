@@ -62,6 +62,7 @@ export const SubHeroText = styled.h2`
     color: white;
     font-size: 1.23125rem;
     opacity: 0.9;
+    margin: 0.5rem 0 1.5rem;
     padding-left: 0.5rem;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     @media (min-width: 960px) {

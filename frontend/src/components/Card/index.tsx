@@ -8,7 +8,9 @@ const Card: FC<Props> = ({ article, ...rest }) => {
         <Link {...rest} to={`/article/${article.node.slug}`} className="uk-link-reset">
             <Container className="uk-card uk-card-muted">
                 <div className="uk-card-media-top">
-                    <CardImg fixed={article.node.image.childImageSharp.fixed} imgStyle={{ position: 'static' }} />
+                    {article?.node?.image?.childImageSharp?.fixed && (
+                        <CardImg fixed={article.node.image.childImageSharp.fixed} imgStyle={{ position: 'static' }} />
+                    )}
                 </div>
                 <CardBody>
                     <CategoryTag id="category">{article.node.category.name}</CategoryTag>
