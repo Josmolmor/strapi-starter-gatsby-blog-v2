@@ -59,7 +59,7 @@ export const CategoriesListBackdrop = styled.div<{ categoriesOpen: boolean }>`
 `;
 
 export const CategoriesList = styled.ul<{ categoriesOpen: boolean }>`
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.cardBackground};
     border-radius: 0.25rem;
     -webkit-box-shadow: 0 1px 3px 0 rgba(33, 6, 6, 0.5);
     -moz-box-shadow: 0 1px 3px 0 rgba(33, 6, 6, 0.5);
@@ -81,6 +81,13 @@ export const CategoriesList = styled.ul<{ categoriesOpen: boolean }>`
             box-shadow: none;
             position: initial;
         `};
+
+    @media (max-width: 768px) {
+        background-color: ${({ theme }) => theme.colors.background};
+        > * + * {
+            margin-top: 1rem;
+        }
+    }
 `;
 
 export const Category = styled.li`
