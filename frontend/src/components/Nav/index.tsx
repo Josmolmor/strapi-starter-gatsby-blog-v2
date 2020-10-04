@@ -12,6 +12,7 @@ const Nav: FC = () => {
             return;
         }
         windowSize?.width > 768 && setOpen(false);
+        document.body.style.overflow = 'unset';
     }, [windowSize]);
     const [open, setOpen] = useState(false);
 

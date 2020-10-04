@@ -12,9 +12,9 @@ export const StyledBurger = styled.div<{ open: boolean }>`
     cursor: pointer;
     width: 2rem;
     height: 2rem;
-    position: fixed;
+    position: absolute;
     top: 2rem;
-    right: 1.25rem;
+    right: 2rem;
     z-index: 999;
     display: none;
     @media (max-width: 768px) {
