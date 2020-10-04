@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { Button, Layout, ArticleList } from 'components';
+import { Layout, ArticleList, Banner } from 'components';
 import 'assets/css/main.css';
-import { Container, HeroHeader, HeroText, SubHeroText, TitleContent, ButtonContainer } from './styles/Base';
+import { Container } from './styles/Base';
 
 const IndexPage: FC = () => {
     return (
@@ -49,15 +49,7 @@ const IndexPage: FC = () => {
                 `}
                 render={(data) => (
                     <Container>
-                        <HeroHeader>
-                            <TitleContent>
-                                <HeroText>{data.strapiHomepage.Hero.HeroText}</HeroText>
-                                <SubHeroText>{data.strapiHomepage.Hero.SubHeroText}</SubHeroText>
-                            </TitleContent>
-                            <ButtonContainer>
-                                <Button to="/contact">¡Hablemos!</Button>
-                            </ButtonContainer>
-                        </HeroHeader>
+                        <Banner data={data} ctaButtonText="¡Hablemos!" />
                         <ArticleList articles={data.allStrapiArticle.edges} />
                     </Container>
                 )}
