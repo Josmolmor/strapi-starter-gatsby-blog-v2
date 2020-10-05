@@ -1,5 +1,3 @@
-const primary = '#BF2D52';
-
 export default {
     weights: {
         normal: 400,
@@ -9,7 +7,7 @@ export default {
         extraBold: 800,
     },
     colors: {
-        primary,
+        primary: '#BF2D52',
         alert: '#D73D09',
         warning: '#FAB72D',
         success: '#69CC8B',
@@ -32,7 +30,7 @@ export default {
         gray800: '#263947',
         cardBackground: '#fff',
         typography: '#515151',
-        navLinks: primary,
+        navLinks: '#BF2D52',
         navLinksHover: '#fff',
     },
     ZIndex: {

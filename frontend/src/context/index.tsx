@@ -9,8 +9,10 @@ export const myContext = React.createContext<{ isDark: boolean; changeTheme: any
 
 const Provider: FC = ({ children }) => {
     let isDarkModeSet = false;
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        isDarkModeSet = true;
+    if (typeof window !== `undefined`) {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            isDarkModeSet = true;
+        }
     }
     const [isDark, setTheme] = useState(isDarkModeSet);
 
