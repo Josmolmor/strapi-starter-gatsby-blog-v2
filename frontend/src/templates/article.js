@@ -61,7 +61,7 @@ const Article = ({ data }) => {
             <Seo
                 title={article.Seo.metaTitle}
                 description={article.Seo.metaDescription}
-                image={article.Seo.shareImage.image.publicURL}
+                image={article.Seo.shareImage.image.publicURL ?? ''}
             />
             <div>
                 <div
