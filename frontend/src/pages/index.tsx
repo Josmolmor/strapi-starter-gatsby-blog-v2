@@ -13,6 +13,7 @@ const IndexPage: FC = () => {
                         strapiHomepage {
                             Hero {
                                 HeroText
+                                SubHeroText
                             }
                         }
                         allStrapiArticle(filter: { status: { eq: "published" } }) {
